@@ -4,6 +4,12 @@
   body{
     background-image: url("https://cdn.pixabay.com/photo/2018/02/23/22/04/book-bindings-3176776_1280.jpg")
   }
+
+  
+
+  .form-control{
+    height: 400px;
+  }
 </style>
 
 <body>
@@ -21,5 +27,41 @@
       </div>
     </div>
 
+  <div class="container">
+    <% if user_signed_in? %>
+      <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div class="grid-6">
+        <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+        <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      </div>
+    <% end %>
+  </div><br>
 
+  <div class="container">
+    <% if user_signed_in?%>
+      <div class="row">
+        <div class="col ">
+          <div class="form-group ">
+            <label for="text1">問題文作成</label>
+            <input type="text" id="text1" class="form-control ">
+          </div><!--form-group--><br>
+        </div><!--col--><br>
+
+        <div class="col">
+          <div class="form-group ">
+            <label for="text1">解答作成</label>
+            <input type="text" id="text1" class="form-control ">
+          </div><!--form-group--><br>
+        </div><!--col--><br>
+      </div><!--row-->
+    <% end %>
+  </div><!--container-->
+
+  <div class="text-center">
+    <%= f.submit "問題を登録する" %>
+  </div>
+    
 </body>
