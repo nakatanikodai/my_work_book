@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'sections#create'
   get "sections/index" => "sections#index"
   resources :sections, only: [:new, :create]
+  resources :files, only: [:new, :create]
 end
