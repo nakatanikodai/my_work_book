@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  #get 'sections/index'
-  root to: 'sections#index'
-  #get 'sections/new', to: 'sections#new'
-  #post 'sections', to: 'sections#create'
+  root to: 'sections#create'
+  get "sections/index" => "sections#index"
   resources :sections, only: [:new, :create]
 end
